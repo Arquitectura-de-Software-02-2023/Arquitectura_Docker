@@ -1,4 +1,4 @@
 package com.pedidos.proyectopedido.Api;
 
-public class MenuApi {
+public class TiposApi {
 }
