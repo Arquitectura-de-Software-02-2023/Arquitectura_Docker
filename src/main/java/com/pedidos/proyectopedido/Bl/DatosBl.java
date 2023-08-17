@@ -7,6 +7,8 @@ import com.pedidos.proyectopedido.Dto.ResponseDto;
 import com.pedidos.proyectopedido.Dto.TiposDto;
 import com.pedidos.proyectopedido.Entity.Datos;
 import com.pedidos.proyectopedido.Entity.Tipos;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,9 @@ import java.util.List;
 
 @Service
 public class DatosBl {
+
+    private static final Logger logger = LoggerFactory.getLogger(DatosBl.class);
+
     @Autowired
     private DatosRepository datosRepository;
 
@@ -24,8 +29,9 @@ public class DatosBl {
     @Autowired
     private ApiConsumerBl apiConsumerBl;
 
-    // obtener todos los datos
     public List<DatosDto> getall() {
+        logger.info("Fetching all datos from the database.");
+
         List<DatosDto> datosDtos = new ArrayList<>();
         datosRepository.findAll().forEach(datos -> {
             DatosDto datosDto = new DatosDto();
@@ -37,8 +43,9 @@ public class DatosBl {
         return datosDtos;
     }
 
-    //guardar un dato
     public void guardar(ResponseDto responseDto) {
+        logger.info("Saving a new dato.");
+
         Datos datosDto1 = new Datos();
         Tipos tiposDto = new Tipos();
         tiposDto.setIdTipo(1);
@@ -47,8 +54,9 @@ public class DatosBl {
         datosRepository.save(datosDto1);
     }
 
-    //Modificar por id
     public void modificar(ResponseDto responseDto, Integer id) {
+        logger.info("Updating dato with ID: " + id);
+
         Datos datosDto1 = new Datos();
         Tipos tiposDto = new Tipos();
         tiposDto.setIdTipo(1);
@@ -58,10 +66,9 @@ public class DatosBl {
         datosRepository.save(datosDto1);
     }
 
-    //Eliminar por id
     public void eliminar(Integer id) {
+        logger.info("Deleting dato with ID: " + id);
+
         datosRepository.deleteById(Long.valueOf(id));
     }
-
-
 }

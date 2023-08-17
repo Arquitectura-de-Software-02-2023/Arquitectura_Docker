@@ -12,3 +12,5 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+apiDatos:
+  url: "https://api.artic.edu/api/v1/artworks"
