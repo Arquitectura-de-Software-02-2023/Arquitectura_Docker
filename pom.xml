@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.pedidos</groupId>
 	<artifactId>proyectopedido</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>proyectopedido</name>
 	<description>Proyecto de prueba Spring pedidos</description>
 	<properties>

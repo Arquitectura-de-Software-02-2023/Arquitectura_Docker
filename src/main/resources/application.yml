@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/Ejemplo_arqui
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/Ejemplo_arqui}
     username: postgres
     password: password
     driver-class-name: org.postgresql.Driver
